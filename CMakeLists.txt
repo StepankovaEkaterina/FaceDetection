@@ -13,7 +13,6 @@ set(Boost_USE_RELEASE_LIBS   ON)
 set(Boost_USE_MULTITHREADED  ON)
 set(BOOST_ROOT ${FACEDETECTION_LIBSDIR}/boost)
 
-
 # add_definitions(-DBOOST_LOG_DYN_LINK)
 find_package(Boost 1.76 REQUIRED COMPONENTS system container program_options thread log)
 include_directories(${Boost_INCLUDE_DIRS})

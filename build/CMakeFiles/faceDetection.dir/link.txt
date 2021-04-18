@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\faceDetection.dir/objects.a
+C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\ar.exe cr CMakeFiles\faceDetection.dir/objects.a @CMakeFiles\faceDetection.dir\objects1.rsp
+c:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE -g -Wl,--whole-archive CMakeFiles\faceDetection.dir/objects.a -Wl,--no-whole-archive -o faceDetection.exe -Wl,--out-implib,libfaceDetection.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\faceDetection.dir\linklibs.rsp

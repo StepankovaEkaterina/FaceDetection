@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\faceDet.dir/objects.a
+C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\ar.exe cr CMakeFiles\faceDet.dir/objects.a @CMakeFiles\faceDet.dir\objects1.rsp
+c:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE -g -Wl,--no-undefined -shared -o libfaceDet.dll -Wl,--out-implib,libfaceDet.dll.a -Wl,--major-image-version,0,--minor-image-version,0 -Wl,--whole-archive CMakeFiles\faceDet.dir/objects.a -Wl,--no-whole-archive @CMakeFiles\faceDet.dir\linklibs.rsp

@@ -1,0 +1,14 @@
+C:/!work/!CMake/FaceDetection/build/CMakeFiles/faceDetection.dir
+C:/!work/!CMake/FaceDetection/build/CMakeFiles/install/local.dir
+C:/!work/!CMake/FaceDetection/build/CMakeFiles/install.dir
+C:/!work/!CMake/FaceDetection/build/CMakeFiles/edit_cache.dir
+C:/!work/!CMake/FaceDetection/build/CMakeFiles/rebuild_cache.dir
+C:/!work/!CMake/FaceDetection/build/CMakeFiles/list_install_components.dir
+C:/!work/!CMake/FaceDetection/build/CMakeFiles/install/strip.dir
+C:/!work/!CMake/FaceDetection/build/project/faceDet/CMakeFiles/install/strip.dir
+C:/!work/!CMake/FaceDetection/build/project/faceDet/CMakeFiles/faceDet.dir
+C:/!work/!CMake/FaceDetection/build/project/faceDet/CMakeFiles/install/local.dir
+C:/!work/!CMake/FaceDetection/build/project/faceDet/CMakeFiles/install.dir
+C:/!work/!CMake/FaceDetection/build/project/faceDet/CMakeFiles/edit_cache.dir
+C:/!work/!CMake/FaceDetection/build/project/faceDet/CMakeFiles/rebuild_cache.dir
+C:/!work/!CMake/FaceDetection/build/project/faceDet/CMakeFiles/list_install_components.dir

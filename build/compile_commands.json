@@ -1,0 +1,17 @@
+[
+{
+  "directory": "C:/!work/!CMake/FaceDetection/build",
+  "command": "c:\\PROGRA~2\\MINGW-~1\\I686-8~1.0-P\\mingw32\\bin\\G__~1.EXE -DBOOST_ALL_NO_LIB @CMakeFiles/faceDetection.dir/includes_CXX.rsp -g -o CMakeFiles\\faceDetection.dir\\project\\main.cpp.obj -c C:\\!work\\!CMake\\FaceDetection\\project\\main.cpp",
+  "file": "C:/!work/!CMake/FaceDetection/project/main.cpp"
+},
+{
+  "directory": "C:/!work/!CMake/FaceDetection/build",
+  "command": "c:\\PROGRA~2\\MINGW-~1\\I686-8~1.0-P\\mingw32\\bin\\G__~1.EXE -DBOOST_ALL_NO_LIB @CMakeFiles/faceDetection.dir/includes_CXX.rsp -g -o CMakeFiles\\faceDetection.dir\\project\\app\\app.cpp.obj -c C:\\!work\\!CMake\\FaceDetection\\project\\app\\app.cpp",
+  "file": "C:/!work/!CMake/FaceDetection/project/app/app.cpp"
+},
+{
+  "directory": "C:/!work/!CMake/FaceDetection/build/project/faceDet",
+  "command": "c:\\PROGRA~2\\MINGW-~1\\I686-8~1.0-P\\mingw32\\bin\\G__~1.EXE -DfaceDet_EXPORTS @CMakeFiles/faceDet.dir/includes_CXX.rsp -g -o CMakeFiles\\faceDet.dir\\faceDet.cpp.obj -c C:\\!work\\!CMake\\FaceDetection\\project\\faceDet\\faceDet.cpp",
+  "file": "C:/!work/!CMake/FaceDetection/project/faceDet/faceDet.cpp"
+}
+]

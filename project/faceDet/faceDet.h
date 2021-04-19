@@ -10,11 +10,8 @@
 #include <opencv2/imgproc/imgproc.hpp>
 
 namespace faceDetection
-{
-    namespace funcDll
-    {
-        std::vector<cv::Rect> faceDet(const std::string &p_path, cv::CascadeClassifier &p_faceCascade);
-    }
+{ 
+    std::vector<cv::Rect> faceDet(const std::string &p_path, cv::CascadeClassifier &p_faceCascade);    
 } 
 
 #endif

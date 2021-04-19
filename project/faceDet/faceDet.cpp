@@ -1,6 +1,6 @@
 #include "faceDet.h"
 
-std::vector<cv::Rect> faceDetection::funcDll::faceDet(const std::string &p_path, cv::CascadeClassifier &p_faceCascade)
+std::vector<cv::Rect> faceDetection::faceDet(const std::string &p_path, cv::CascadeClassifier &p_faceCascade)
 {
     std::vector<cv::Rect> findRects;
     cv::Mat img = cv::imread(p_path);

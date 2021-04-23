@@ -8,7 +8,6 @@ find_package(OpenCV REQUIRED)
 
 add_library(faceDet SHARED faceDet.cpp)
 set(faceDet_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR})
-set_target_properties(faceDet PROPERTIES PUBLIC_HEADER ${faceDet_INCLUDE_DIRS}/faceDet.h LINK_FLAGS "-Wl,--no-undefined")
 target_include_directories(faceDet PUBLIC ${OpenCV_INCLUDE_DIRS} ${faceDet_INCLUDE_DIRS}/..)
 target_link_libraries(faceDet PUBLIC ${OpenCV_LIBS})
 install(TARGETS faceDet

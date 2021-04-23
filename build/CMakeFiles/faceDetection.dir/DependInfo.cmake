@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/!work/!CMake/FaceDetection/project/app/app.cpp" "CMakeFiles/faceDetection.dir/project/app/app.cpp.obj" "gcc" "CMakeFiles/faceDetection.dir/project/app/app.cpp.obj.d"
-  "C:/!work/!CMake/FaceDetection/project/main.cpp" "CMakeFiles/faceDetection.dir/project/main.cpp.obj" "gcc" "CMakeFiles/faceDetection.dir/project/main.cpp.obj.d"
+  "C:/!work/!CMake/FaceDetection/project/app/app.cpp" "CMakeFiles/facedetection.dir/project/app/app.cpp.obj" "gcc" "CMakeFiles/facedetection.dir/project/app/app.cpp.obj.d"
+  "C:/!work/!CMake/FaceDetection/project/main.cpp" "CMakeFiles/facedetection.dir/project/main.cpp.obj" "gcc" "CMakeFiles/facedetection.dir/project/main.cpp.obj.d"
   )
 
 # Targets to which this target links.

@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
+  "../../bin/libfaceDet.dll"
+  "../../bin/libfaceDet.dll.manifest"
+  "../../bin/libfaceDet.pdb"
+  "../../lib/libfaceDet.dll.a"
   "CMakeFiles/faceDet.dir/faceDet.cpp.obj"
   "CMakeFiles/faceDet.dir/faceDet.cpp.obj.d"
-  "libfaceDet.dll"
-  "libfaceDet.dll.a"
-  "libfaceDet.dll.manifest"
-  "libfaceDet.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

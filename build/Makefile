@@ -64,6 +64,26 @@ CMAKE_BINARY_DIR = C:\!work\!CMake\FaceDetection\build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	"C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	"C:\Program Files\CMake\bin\ctest.exe" --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -97,16 +117,6 @@ edit_cache:
 # Special rule for the target edit_cache
 edit_cache/fast: edit_cache
 .PHONY : edit_cache/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-.PHONY : rebuild_cache/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -161,17 +171,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named faceDetection
+# Target rules for targets named facedetection
 
 # Build rule for target.
-faceDetection: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 faceDetection
-.PHONY : faceDetection
+facedetection: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 facedetection
+.PHONY : facedetection
 
 # fast build rule for target.
-faceDetection/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\faceDetection.dir\build.make CMakeFiles/faceDetection.dir/build
-.PHONY : faceDetection/fast
+facedetection/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\facedetection.dir\build.make CMakeFiles/facedetection.dir/build
+.PHONY : facedetection/fast
 
 #=============================================================================
 # Target rules for targets named faceDet
@@ -186,12 +196,25 @@ faceDet/fast:
 	$(MAKE) $(MAKESILENT) -f project\faceDet\CMakeFiles\faceDet.dir\build.make project/faceDet/CMakeFiles/faceDet.dir/build
 .PHONY : faceDet/fast
 
+#=============================================================================
+# Target rules for targets named unit_tests
+
+# Build rule for target.
+unit_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 unit_tests
+.PHONY : unit_tests
+
+# fast build rule for target.
+unit_tests/fast:
+	$(MAKE) $(MAKESILENT) -f test\CMakeFiles\unit_tests.dir\build.make test/CMakeFiles/unit_tests.dir/build
+.PHONY : unit_tests/fast
+
 project/app/app.obj: project/app/app.cpp.obj
 .PHONY : project/app/app.obj
 
 # target to build an object file
 project/app/app.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\faceDetection.dir\build.make CMakeFiles/faceDetection.dir/project/app/app.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\facedetection.dir\build.make CMakeFiles/facedetection.dir/project/app/app.cpp.obj
 .PHONY : project/app/app.cpp.obj
 
 project/app/app.i: project/app/app.cpp.i
@@ -199,7 +222,7 @@ project/app/app.i: project/app/app.cpp.i
 
 # target to preprocess a source file
 project/app/app.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\faceDetection.dir\build.make CMakeFiles/faceDetection.dir/project/app/app.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\facedetection.dir\build.make CMakeFiles/facedetection.dir/project/app/app.cpp.i
 .PHONY : project/app/app.cpp.i
 
 project/app/app.s: project/app/app.cpp.s
@@ -207,7 +230,7 @@ project/app/app.s: project/app/app.cpp.s
 
 # target to generate assembly for a file
 project/app/app.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\faceDetection.dir\build.make CMakeFiles/faceDetection.dir/project/app/app.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\facedetection.dir\build.make CMakeFiles/facedetection.dir/project/app/app.cpp.s
 .PHONY : project/app/app.cpp.s
 
 project/main.obj: project/main.cpp.obj
@@ -215,7 +238,7 @@ project/main.obj: project/main.cpp.obj
 
 # target to build an object file
 project/main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\faceDetection.dir\build.make CMakeFiles/faceDetection.dir/project/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\facedetection.dir\build.make CMakeFiles/facedetection.dir/project/main.cpp.obj
 .PHONY : project/main.cpp.obj
 
 project/main.i: project/main.cpp.i
@@ -223,7 +246,7 @@ project/main.i: project/main.cpp.i
 
 # target to preprocess a source file
 project/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\faceDetection.dir\build.make CMakeFiles/faceDetection.dir/project/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\facedetection.dir\build.make CMakeFiles/facedetection.dir/project/main.cpp.i
 .PHONY : project/main.cpp.i
 
 project/main.s: project/main.cpp.s
@@ -231,7 +254,7 @@ project/main.s: project/main.cpp.s
 
 # target to generate assembly for a file
 project/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\faceDetection.dir\build.make CMakeFiles/faceDetection.dir/project/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\facedetection.dir\build.make CMakeFiles/facedetection.dir/project/main.cpp.s
 .PHONY : project/main.cpp.s
 
 # Help Target
@@ -246,8 +269,10 @@ help:
 	@echo ... install/strip
 	@echo ... list_install_components
 	@echo ... rebuild_cache
+	@echo ... test
 	@echo ... faceDet
-	@echo ... faceDetection
+	@echo ... facedetection
+	@echo ... unit_tests
 	@echo ... project/app/app.obj
 	@echo ... project/app/app.i
 	@echo ... project/app/app.s

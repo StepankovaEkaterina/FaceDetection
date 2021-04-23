@@ -73,15 +73,15 @@ project/faceDet/CMakeFiles/faceDet.dir/faceDet.cpp.obj: project/faceDet/CMakeFil
 project/faceDet/CMakeFiles/faceDet.dir/faceDet.cpp.obj: ../project/faceDet/faceDet.cpp
 project/faceDet/CMakeFiles/faceDet.dir/faceDet.cpp.obj: project/faceDet/CMakeFiles/faceDet.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\!work\!CMake\FaceDetection\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object project/faceDet/CMakeFiles/faceDet.dir/faceDet.cpp.obj"
-	cd /d C:\!work\!CMake\FaceDetection\build\project\faceDet && c:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT project/faceDet/CMakeFiles/faceDet.dir/faceDet.cpp.obj -MF CMakeFiles\faceDet.dir\faceDet.cpp.obj.d -o CMakeFiles\faceDet.dir\faceDet.cpp.obj -c C:\!work\!CMake\FaceDetection\project\faceDet\faceDet.cpp
+	cd /d C:\!work\!CMake\FaceDetection\build\project\faceDet && C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\I686-W~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT project/faceDet/CMakeFiles/faceDet.dir/faceDet.cpp.obj -MF CMakeFiles\faceDet.dir\faceDet.cpp.obj.d -o CMakeFiles\faceDet.dir\faceDet.cpp.obj -c C:\!work\!CMake\FaceDetection\project\faceDet\faceDet.cpp
 
 project/faceDet/CMakeFiles/faceDet.dir/faceDet.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/faceDet.dir/faceDet.cpp.i"
-	cd /d C:\!work\!CMake\FaceDetection\build\project\faceDet && c:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\!work\!CMake\FaceDetection\project\faceDet\faceDet.cpp > CMakeFiles\faceDet.dir\faceDet.cpp.i
+	cd /d C:\!work\!CMake\FaceDetection\build\project\faceDet && C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\I686-W~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\!work\!CMake\FaceDetection\project\faceDet\faceDet.cpp > CMakeFiles\faceDet.dir\faceDet.cpp.i
 
 project/faceDet/CMakeFiles/faceDet.dir/faceDet.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/faceDet.dir/faceDet.cpp.s"
-	cd /d C:\!work\!CMake\FaceDetection\build\project\faceDet && c:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\!work\!CMake\FaceDetection\project\faceDet\faceDet.cpp -o CMakeFiles\faceDet.dir\faceDet.cpp.s
+	cd /d C:\!work\!CMake\FaceDetection\build\project\faceDet && C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\I686-W~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\!work\!CMake\FaceDetection\project\faceDet\faceDet.cpp -o CMakeFiles\faceDet.dir\faceDet.cpp.s
 
 # Object files for target faceDet
 faceDet_OBJECTS = \
@@ -90,41 +90,41 @@ faceDet_OBJECTS = \
 # External object files for target faceDet
 faceDet_EXTERNAL_OBJECTS =
 
-project/faceDet/libfaceDet.dll: project/faceDet/CMakeFiles/faceDet.dir/faceDet.cpp.obj
-project/faceDet/libfaceDet.dll: project/faceDet/CMakeFiles/faceDet.dir/build.make
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_calib3d420.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_core420.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_features2d420.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_flann420.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_gapi420.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_highgui420.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_imgcodecs420.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_imgproc420.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_ml420.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_objdetect420.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_photo420.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_stitching420.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libade.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/liblibjpeg-turbo.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/liblibwebp.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/liblibpng.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/liblibtiff.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/liblibjasper.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libIlmImf.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_calib3d420.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_features2d420.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_flann420.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_imgproc420.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_core420.a
-project/faceDet/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libzlib.a
-project/faceDet/libfaceDet.dll: project/faceDet/CMakeFiles/faceDet.dir/linklibs.rsp
-project/faceDet/libfaceDet.dll: project/faceDet/CMakeFiles/faceDet.dir/objects1.rsp
-project/faceDet/libfaceDet.dll: project/faceDet/CMakeFiles/faceDet.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\!work\!CMake\FaceDetection\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library libfaceDet.dll"
+bin/libfaceDet.dll: project/faceDet/CMakeFiles/faceDet.dir/faceDet.cpp.obj
+bin/libfaceDet.dll: project/faceDet/CMakeFiles/faceDet.dir/build.make
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_calib3d420.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_core420.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_features2d420.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_flann420.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_gapi420.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_highgui420.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_imgcodecs420.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_imgproc420.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_ml420.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_objdetect420.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_photo420.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_stitching420.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libade.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/liblibjpeg-turbo.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/liblibwebp.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/liblibpng.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/liblibtiff.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/liblibjasper.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libIlmImf.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_calib3d420.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_features2d420.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_flann420.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_imgproc420.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libopencv_core420.a
+bin/libfaceDet.dll: ../lib/opencv/x64/mingw/staticlib/libzlib.a
+bin/libfaceDet.dll: project/faceDet/CMakeFiles/faceDet.dir/linklibs.rsp
+bin/libfaceDet.dll: project/faceDet/CMakeFiles/faceDet.dir/objects1.rsp
+bin/libfaceDet.dll: project/faceDet/CMakeFiles/faceDet.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\!work\!CMake\FaceDetection\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library ..\..\bin\libfaceDet.dll"
 	cd /d C:\!work\!CMake\FaceDetection\build\project\faceDet && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\faceDet.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-project/faceDet/CMakeFiles/faceDet.dir/build: project/faceDet/libfaceDet.dll
+project/faceDet/CMakeFiles/faceDet.dir/build: bin/libfaceDet.dll
 .PHONY : project/faceDet/CMakeFiles/faceDet.dir/build
 
 project/faceDet/CMakeFiles/faceDet.dir/clean:

@@ -50,6 +50,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../lib/opencv/x64/mingw/staticlib/OpenCVModules-release.cmake"
   "../lib/opencv/x64/mingw/staticlib/OpenCVModules.cmake"
   "../project/faceDet/CMakeLists.txt"
+  "../test/CMakeLists.txt"
   "C:/Program Files/CMake/share/cmake-3.20/Modules/CMakeCInformation.cmake"
   "C:/Program Files/CMake/share/cmake-3.20/Modules/CMakeCXXInformation.cmake"
   "C:/Program Files/CMake/share/cmake-3.20/Modules/CMakeCommonLanguageInclude.cmake"
@@ -68,9 +69,11 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Program Files/CMake/share/cmake-3.20/Modules/Compiler/GNU-CXX.cmake"
   "C:/Program Files/CMake/share/cmake-3.20/Modules/Compiler/GNU.cmake"
   "C:/Program Files/CMake/share/cmake-3.20/Modules/FindBoost.cmake"
+  "C:/Program Files/CMake/share/cmake-3.20/Modules/FindGTest.cmake"
   "C:/Program Files/CMake/share/cmake-3.20/Modules/FindPackageHandleStandardArgs.cmake"
   "C:/Program Files/CMake/share/cmake-3.20/Modules/FindPackageMessage.cmake"
   "C:/Program Files/CMake/share/cmake-3.20/Modules/FindThreads.cmake"
+  "C:/Program Files/CMake/share/cmake-3.20/Modules/GoogleTest.cmake"
   "C:/Program Files/CMake/share/cmake-3.20/Modules/Internal/CheckSourceCompiles.cmake"
   "C:/Program Files/CMake/share/cmake-3.20/Modules/Platform/Windows-GNU-C-ABI.cmake"
   "C:/Program Files/CMake/share/cmake-3.20/Modules/Platform/Windows-GNU-C.cmake"
@@ -92,10 +95,12 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "project/faceDet/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "test/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/faceDetection.dir/DependInfo.cmake"
+  "CMakeFiles/facedetection.dir/DependInfo.cmake"
   "project/faceDet/CMakeFiles/faceDet.dir/DependInfo.cmake"
+  "test/CMakeFiles/unit_tests.dir/DependInfo.cmake"
   )

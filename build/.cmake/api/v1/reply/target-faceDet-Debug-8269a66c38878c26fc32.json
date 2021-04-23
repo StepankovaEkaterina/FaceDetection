@@ -1,0 +1,317 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "bin/libfaceDet.dll"
+		},
+		{
+			"path" : "lib/libfaceDet.dll.a"
+		},
+		{
+			"path" : "bin/libfaceDet.pdb"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"install",
+			"target_link_libraries",
+			"add_definitions",
+			"include_directories",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"project/faceDet/CMakeLists.txt",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 9,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 13,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 12,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 14,
+				"parent" : 4
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 17,
+				"parent" : 4
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 11,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 5,
+					"define" : "BOOST_ALL_NO_LIB"
+				},
+				{
+					"define" : "faceDet_EXPORTS"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 6,
+					"path" : "C:/!work/!CMake/FaceDetection/lib/boost/include/boost-1_76"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "C:/!work/!CMake/FaceDetection/project/faceDet/.."
+				},
+				{
+					"backtrace" : 7,
+					"isSystem" : true,
+					"path" : "C:/!work/!CMake/FaceDetection/lib/opencv/include"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"id" : "faceDet::@abfb8ad5e8c4aa32c442",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 2,
+				"path" : "lib"
+			},
+			{
+				"backtrace" : 2,
+				"path" : "bin"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "C:/Program Files (x86)/facedetection"
+		}
+	},
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\libopencv_calib3d420.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\libopencv_core420.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\libopencv_features2d420.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\libopencv_flann420.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\libopencv_gapi420.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\libopencv_highgui420.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\libopencv_imgcodecs420.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\libopencv_imgproc420.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\libopencv_ml420.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\libopencv_objdetect420.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\libopencv_photo420.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\libopencv_stitching420.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\libade.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\liblibjpeg-turbo.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\liblibwebp.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\liblibpng.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\liblibtiff.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\liblibjasper.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\libIlmImf.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lcomctl32",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgdi32",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lole32",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lsetupapi",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lws2_32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\libopencv_calib3d420.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\libopencv_features2d420.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\libopencv_flann420.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\libopencv_imgproc420.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\libopencv_core420.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "..\\..\\..\\lib\\opencv\\x64\\mingw\\staticlib\\libzlib.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "faceDet",
+	"nameOnDisk" : "libfaceDet.dll",
+	"paths" : 
+	{
+		"build" : "project/faceDet",
+		"source" : "project/faceDet"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "project/faceDet/faceDet.cpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "SHARED_LIBRARY"
+}

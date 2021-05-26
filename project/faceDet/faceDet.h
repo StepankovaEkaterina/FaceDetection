@@ -11,7 +11,11 @@
 
 namespace facedetection
 { 
-    std::vector<cv::Rect> faceDet(const std::string &p_path, cv::CascadeClassifier &p_faceCascade);    
+    std::vector<cv::Rect> faceDet(const std::string &p_path);
+
+    cv::CascadeClassifier init();
+
+    void free(cv::CascadeClassifier &p_faceCascade);
 } 
 
 #endif

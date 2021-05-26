@@ -7,14 +7,14 @@
 #include <vector>
 #include <set>
 #include <algorithm>
+#include <sys/types.h>
+#include <sys/stat.h>
 
-#include <boost/program_options.hpp>
-#include <boost/filesystem.hpp>
-#include <boost/algorithm/string.hpp>
-#include <boost/property_tree/ptree.hpp>
-#include <boost/property_tree/json_parser.hpp>
+#include "faceDet/faceDet.h"
+#include <opencv2/core/utility.hpp>
 
-#include "../faceDet/faceDet.h"
+#include <json/json.h>
+#include <json/writer.h>
 
 namespace facedetection
 {
@@ -28,14 +28,15 @@ namespace facedetection
         int run();
 
     private:
-        boost::program_options::variables_map m_OptMap;
-        boost::program_options::options_description m_options;              
-        boost::filesystem::path m_AppPath;
-        std::string m_InputPath;
-        std::vector<boost::filesystem::path> m_FilePaths;
+        
+        std::string m_appPath;
+        std::string m_inputPath;
+        std::vector<std::string> m_filePaths;
 
-        void scanDir();
-        void findFases();        
+        int scanDir();
+        void findFases();
+        void blurFaces(cv::Mat &p_img,  std::vector<cv::Rect> &p_resRects);
+        void saveImage(cv::Mat &p_img, std::string p_path);        
     };
 }
 

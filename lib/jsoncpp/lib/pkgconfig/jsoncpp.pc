@@ -1,0 +1,11 @@
+prefix=c:/Users/kvayavodava/Downloads/jsoncpp-master (1)/jsoncpp-master/install
+exec_prefix=c:/Users/kvayavodava/Downloads/jsoncpp-master (1)/jsoncpp-master/install
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: jsoncpp
+Description: A C++ library for interacting with JSON
+Version: 1.9.4
+URL: https://github.com/open-source-parsers/jsoncpp
+Libs: -L${libdir} -ljsoncpp
+Cflags: -I${includedir}

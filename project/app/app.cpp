@@ -1,7 +1,5 @@
 #include "app.h"
 
-using namespace facedetection;
-
 App::App(const int argc, const char *argv[])
 {
     if(argv[0])
@@ -28,6 +26,16 @@ int App::run()
 {
     int hr = -1;
 
+#ifdef _WIN32		
+	m_instanceDll = LoadLibrary("libfaceDet.dll");		
+#else
+	m_instanceDll	= dlopen("libfaceDet.dll",RTLD_LAZY);
+#endif    
+    if(m_instanceDll != NULL)
+	{
+        initLibrary();
+    }
+
     try
     {
         if(m_inputPath.empty() || !dirExists(m_inputPath.c_str()))
@@ -45,7 +53,12 @@ int App::run()
         if(m_filePaths.size())
         {
             std::cout << "found " << m_filePaths.size() << " files" << std::endl;
-            this->findFases();
+            this->findFacesResult();
+            if(!m_result.empty())
+            {
+                this->saveAndBlurImages();
+                this->saveJsonResult();
+            }
             hr = 0;
         }        
     }
@@ -62,6 +75,11 @@ int App::run()
         std::cerr << e.what() << std::endl;
     }
     
+    if(m_instanceDll != NULL)
+	{
+        freeLibrary();
+    }
+
     return hr;
 }
 
@@ -72,42 +90,56 @@ int App::scanDir()
     return m_filePaths.size();  
 }
 
-void App::findFases()
-{    
-    Json::Value root;
+void App::findFacesResult()
+{
     std::vector<cv::Rect> resRects;
-    int i = 0;
     for(auto &path : m_filePaths)
     {
-        Json::Value res;
-        res["path"] = path;
-        
         cv::Mat img = cv::imread(path);
-        resRects = facedetection::faceDet(path);
-        if(resRects.size())
-        {
-            blurFaces(img, resRects);
-            saveImage(img, path);
-        }
+        resRects = faceDet(path);        
+        m_result.emplace(std::make_pair(path, resRects));
+    }
+}
 
-        if(resRects.size())
+void App::saveAndBlurImages()
+{
+    for(auto& res : m_result)
+    {
+        cv::Mat img = cv::imread(res.first);
+        if(!res.second.empty())
+        {
+            blurFaces(img, res.second);
+            saveImage(img, res.first);
+        }
+    }
+}
+
+void App::saveJsonResult()
+{
+    Json::Value root;
+    int i = 0;
+    for(auto& res : m_result)
+    {
+        Json::Value result1;
+        result1["path"] = res.first;
+        if(res.second.size())
         {
             int j = 0;
             Json::Value coords;
-            for(cv::Rect &rect: resRects)
+            for(cv::Rect &rect: res.second)
             {
-                Json::Value result;
-                result["x"] = rect.x;
-                result["y"] = rect.y;
-                result["width"] = rect.width;
-                result["height"] = rect.height;
-                coords[j] = result;
+                Json::Value result2;
+                result2["x"] = rect.x;
+                result2["y"] = rect.y;
+                result2["width"] = rect.width;
+                result2["height"] = rect.height;
+                coords[j] = result2;
                 j++;                
             }
-            res["coordinates"] = coords;
+            result1["coordinates"] = coords;
         }        
-        root[i] = res;
-        i++;        
+        root[i] = result1;
+        i++;
     }
     std::ofstream jsonOutStream;
     std::string jsonPath = m_inputPath + "result.json";
@@ -118,7 +150,7 @@ void App::findFases()
     {        
         writer->write(root, &jsonOutStream);        
     }
-    jsonOutStream.close();    
+    jsonOutStream.close();
 }
 
 void App::blurFaces(cv::Mat &p_img,  std::vector<cv::Rect> &p_resRects)

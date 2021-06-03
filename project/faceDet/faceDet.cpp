@@ -1,15 +1,16 @@
 #include "faceDet.h"
 
-std::vector<cv::Rect> facedetection::faceDet(const std::string &p_path)
+cv::CascadeClassifier m_faceCascade;
+std::string m_cascadePath = "haarcascade_frontalface_alt2.xml";
+
+std::vector<cv::Rect> faceDet(const std::string &p_path)
 {
     std::vector<cv::Rect> findRects;
     cv::Mat img = cv::imread(p_path);
     if(img.data)
     {
-        std::cout << "load image: " << p_path << std::endl;
-        cv::CascadeClassifier faceCascade = init();
-        faceCascade.detectMultiScale(img, findRects, 1.1, 3, 0, cv::Size(30, 30));
-        free(faceCascade);        
+        std::cout << "load image: " << p_path << std::endl;        
+        m_faceCascade.detectMultiScale(img, findRects, 1.1, 3, 0, cv::Size(30, 30));               
     }
     else
     {
@@ -19,15 +20,12 @@ std::vector<cv::Rect> facedetection::faceDet(const std::string &p_path)
     return findRects;
 }
 
-cv::CascadeClassifier facedetection::init()
+void initLibrary()
 {
-    cv::CascadeClassifier faceCascade;
-    std::string cascadePath = "haarcascade_frontalface_alt2.xml";
-    faceCascade.load(cascadePath);
-    return faceCascade;
+    m_faceCascade.load(m_cascadePath);    
 }
 
-void facedetection::free(cv::CascadeClassifier &p_faceCascade)
+void freeLibrary()
 {
-    p_faceCascade.empty();
+    m_faceCascade.empty();
 }

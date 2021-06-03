@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef FACEDET_H
 #define FACEDET_H
 
@@ -9,13 +11,16 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
-namespace facedetection
-{ 
-    std::vector<cv::Rect> faceDet(const std::string &p_path);
+#ifdef FACEDET_EXPORTS
+#define FACEDET_API __declspec(dllexport)
+#else
+#define FACEDET_API __declspec(dllimport)
+#endif
 
-    cv::CascadeClassifier init();
+extern "C" FACEDET_API std::vector<cv::Rect> faceDet(const std::string &p_path);
 
-    void free(cv::CascadeClassifier &p_faceCascade);
-} 
+extern "C" FACEDET_API void initLibrary();
+
+extern "C" FACEDET_API void freeLibrary();
 
 #endif

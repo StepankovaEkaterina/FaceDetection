@@ -4,6 +4,6 @@
 
 int main(int argc, char const *argv[])
 {
-    facedetection::App app(argc, argv);
+    App app(argc, argv);
     return app.run();
 }

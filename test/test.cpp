@@ -4,13 +4,22 @@
 TEST(faceDet, findFaces)
 {
     initLibrary();
-    std::vector<cv::Rect> resFases = faceDet("testsamples\\oneface\\one_face.jpg");
-    ASSERT_EQ(resFases.size(), 1);
-    resFases.clear();
-    resFases = faceDet("testsamples\\twofaces\\twofaces.jpg");
-    ASSERT_EQ(resFases.size(), 2);
-    resFases.clear();
-    resFases = faceDet("testsamples\\noface\\noface.jpg");
-    ASSERT_EQ(resFases.size(), 0);
+    
+    std::vector< std::pair<std::string, int>> testSamples = 
+    {
+        { "testsamples\\oneface\\one_face.jpg", 1 },
+        { "testsamples\\twofaces\\twofaces.jpg", 2 },
+        { "testsamples\\noface\\noface.jpg", 0 }
+    };
+
+    for(auto& test: testSamples)
+    {
+        size_t size = 0;
+        cv::Rect* rectsArr = faceDet(test.first.c_str());
+        if(rectsArr)
+            size = _msize(rectsArr) / sizeof(*rectsArr);
+        ASSERT_EQ(size, test.second);
+    }
+
     freeLibrary();
 }

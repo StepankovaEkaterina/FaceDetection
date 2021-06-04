@@ -1,10 +1,17 @@
 #include "faceDet.h"
 
+#include <iostream>
+#include <thread>
+#include <vector>
+#include <opencv2/objdetect/objdetect.hpp>
+#include <opencv2/highgui/highgui.hpp>
+
 cv::CascadeClassifier m_faceCascade;
 std::string m_cascadePath = "haarcascade_frontalface_alt2.xml";
 
-std::vector<cv::Rect> faceDet(const std::string &p_path)
+cv::Rect* faceDet(const char* p_path)
 {
+    cv::Rect *rects = nullptr;
     std::vector<cv::Rect> findRects;
     cv::Mat img = cv::imread(p_path);
     if(img.data)
@@ -16,8 +23,17 @@ std::vector<cv::Rect> faceDet(const std::string &p_path)
     {
         std::cout << "file: " << p_path << " doesn't open" << std::endl;
     }
+    
+    if(findRects.size())
+    {
+        rects = new cv::Rect[findRects.size()];
+        for(size_t i = 0; i < findRects.size(); i++)
+        {
+            rects[i] = findRects[i];
+        }        
+    }     
 
-    return findRects;
+    return rects;
 }
 
 void initLibrary()

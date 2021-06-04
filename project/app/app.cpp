@@ -1,5 +1,13 @@
 #include "app.h"
 
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+
+#include <opencv2/core/utility.hpp>
+#include <opencv2/objdetect/objdetect.hpp>
+#include <opencv2/highgui/highgui.hpp>
+
 App::App(const int argc, const char *argv[])
 {
     if(argv[0])
@@ -13,7 +21,7 @@ App::~App()
 
 }
 
-int dirExists(const char *path)
+int App::dirExists(const char *path)
 {
     struct stat info;
 
@@ -25,29 +33,42 @@ int dirExists(const char *path)
 int App::run()
 {
     int hr = -1;
-
+    
+    LPCSTR init = "initLibrary";
+    LPCSTR free = "freeLibrary";    
 #ifdef _WIN32		
-	m_instanceDll = LoadLibrary("libfaceDet.dll");		
+	m_instanceDll = LoadLibrary("libfaceDet");		
 #else
-	m_instanceDll	= dlopen("libfaceDet.dll",RTLD_LAZY);
+	m_instanceDll	= dlopen("libfaceDet",RTLD_LAZY);
 #endif    
-    if(m_instanceDll != NULL)
-	{
-        initLibrary();
-    }
-
+    
     try
     {
-        if(m_inputPath.empty() || !dirExists(m_inputPath.c_str()))
+        if(m_instanceDll == NULL)
+	    {
+            throw  "library not loaded";
+        }
+
+        FARPROC adresse_init = GetProcAddress(m_instanceDll, init);
+        if(adresse_init == 0)
+        {
+            throw  "initLibrary not loaded";
+        }
+
+        typedef void (__cdecl *init)();
+        ((init)adresse_init)();
+
+        if(m_inputPath.empty() || !this->dirExists(m_inputPath.c_str()))
         {  
             std::cout << "input path " << m_inputPath << " not found";
-            throw  "input path " + m_inputPath + " not found";
+            return -1;
         }
 
         std::cout << "set path for scan: '" << m_inputPath << "'" << std::endl;
         if(this->scanDir() == 0)
         {
-            throw "no files found along path " + m_inputPath;
+            std::cout << "no files found along path " << m_inputPath;
+            return -1;
         }
         
         if(m_filePaths.size())
@@ -60,7 +81,14 @@ int App::run()
                 this->saveJsonResult();
             }
             hr = 0;
-        }        
+        } 
+
+        FARPROC adresse_free = GetProcAddress(m_instanceDll, free);
+        if(adresse_free != 0)
+        {
+            typedef void (__cdecl *free)();
+            ((free)adresse_free)();
+        }              
     }
     catch (std::string &e)
     {
@@ -73,12 +101,7 @@ int App::run()
     catch (std::exception &e)
     {
         std::cerr << e.what() << std::endl;
-    }
-    
-    if(m_instanceDll != NULL)
-	{
-        freeLibrary();
-    }
+    }    
 
     return hr;
 }
@@ -92,13 +115,23 @@ int App::scanDir()
 
 void App::findFacesResult()
 {
-    std::vector<cv::Rect> resRects;
-    for(auto &path : m_filePaths)
-    {
-        cv::Mat img = cv::imread(path);
-        resRects = faceDet(path);        
-        m_result.emplace(std::make_pair(path, resRects));
-    }
+    FARPROC adresse_faceDet = GetProcAddress(m_instanceDll, faceDetection);
+    if(adresse_faceDet != 0)
+    {        
+        for(auto &path : m_filePaths)
+        {
+            cv::Mat img = cv::imread(path);
+            typedef cv::Rect* (__cdecl *faceDetection)(const char*);
+            cv::Rect* rectsArr = ((faceDetection)adresse_faceDet)(path.c_str());
+            std::vector<cv::Rect> resRects;
+            if(rectsArr)
+            {
+                int sizeRects = _msize(rectsArr) / sizeof(*rectsArr);
+                std::copy(rectsArr, rectsArr + sizeRects, std::back_inserter(resRects));
+            }            
+            m_result.emplace(std::make_pair(path, resRects));
+        }        
+    }    
 }
 
 void App::saveAndBlurImages()

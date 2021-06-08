@@ -18,10 +18,20 @@ App::App(const int argc, const char *argv[])
 
 App::~App() 
 {
-
+    m_appPath.clear();
+    m_inputPath.clear();
+    m_filePaths.clear();
+    m_result.clear();
 }
 
-int App::dirExists(const char *path)
+int scanDir(std::string &p_inputPath, std::vector<std::string> &p_filePaths)
+{    
+    cv::glob(p_inputPath, p_filePaths, true);
+
+    return p_filePaths.size();  
+}
+
+int dirExists(const char *path)
 {
     struct stat info;
 
@@ -34,22 +44,24 @@ int App::run()
 {
     int hr = -1;
     
+    HINSTANCE instanceDll;
+    LPCSTR faceDetection = "faceDet";
     LPCSTR init = "initLibrary";
     LPCSTR free = "freeLibrary";    
 #ifdef _WIN32		
-	m_instanceDll = LoadLibrary("libfaceDet");		
+	instanceDll = LoadLibrary("libfaceDet");		
 #else
-	m_instanceDll	= dlopen("libfaceDet",RTLD_LAZY);
+	instanceDll	= dlopen("libfaceDet",RTLD_LAZY);
 #endif    
     
     try
     {
-        if(m_instanceDll == NULL)
+        if(instanceDll == NULL)
 	    {
             throw  "library not loaded";
         }
 
-        FARPROC adresse_init = GetProcAddress(m_instanceDll, init);
+        FARPROC adresse_init = GetProcAddress(instanceDll, init);
         if(adresse_init == 0)
         {
             throw  "initLibrary not loaded";
@@ -58,14 +70,14 @@ int App::run()
         typedef void (__cdecl *init)();
         ((init)adresse_init)();
 
-        if(m_inputPath.empty() || !this->dirExists(m_inputPath.c_str()))
+        if(m_inputPath.empty() || !dirExists(m_inputPath.c_str()))
         {  
             std::cout << "input path " << m_inputPath << " not found";
             return -1;
         }
 
         std::cout << "set path for scan: '" << m_inputPath << "'" << std::endl;
-        if(this->scanDir() == 0)
+        if(scanDir(m_inputPath, m_filePaths) == 0)
         {
             std::cout << "no files found along path " << m_inputPath;
             return -1;
@@ -74,7 +86,7 @@ int App::run()
         if(m_filePaths.size())
         {
             std::cout << "found " << m_filePaths.size() << " files" << std::endl;
-            this->findFacesResult();
+            this->findFacesResult(instanceDll, faceDetection);
             if(!m_result.empty())
             {
                 this->saveAndBlurImages();
@@ -83,7 +95,7 @@ int App::run()
             hr = 0;
         } 
 
-        FARPROC adresse_free = GetProcAddress(m_instanceDll, free);
+        FARPROC adresse_free = GetProcAddress(instanceDll, free);
         if(adresse_free != 0)
         {
             typedef void (__cdecl *free)();
@@ -106,16 +118,9 @@ int App::run()
     return hr;
 }
 
-int App::scanDir()
-{    
-    cv::glob(m_inputPath, m_filePaths, true);
-
-    return m_filePaths.size();  
-}
-
-void App::findFacesResult()
+void App::findFacesResult(HINSTANCE &p_instanceDll, LPCSTR &p_nameFunction)
 {
-    FARPROC adresse_faceDet = GetProcAddress(m_instanceDll, faceDetection);
+    FARPROC adresse_faceDet = GetProcAddress(p_instanceDll, p_nameFunction);
     if(adresse_faceDet != 0)
     {        
         for(auto &path : m_filePaths)
@@ -128,6 +133,7 @@ void App::findFacesResult()
             {
                 int sizeRects = _msize(rectsArr) / sizeof(*rectsArr);
                 std::copy(rectsArr, rectsArr + sizeRects, std::back_inserter(resRects));
+                delete [] rectsArr;
             }            
             m_result.emplace(std::make_pair(path, resRects));
         }        

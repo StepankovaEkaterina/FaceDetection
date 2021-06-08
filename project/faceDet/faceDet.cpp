@@ -25,12 +25,12 @@ cv::Rect* faceDet(const char* p_path)
     }
     
     if(findRects.size())
-    {
+    {        
         rects = new cv::Rect[findRects.size()];
         for(size_t i = 0; i < findRects.size(); i++)
         {
             rects[i] = findRects[i];
-        }        
+        }      
     }     
 
     return rects;

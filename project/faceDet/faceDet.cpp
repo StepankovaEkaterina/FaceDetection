@@ -9,8 +9,9 @@
 cv::CascadeClassifier m_faceCascade;
 std::string m_cascadePath = "haarcascade_frontalface_alt2.xml";
 
-cv::Rect* faceDet(const char* p_path)
+TRectsFace faceDet(const char* p_path)
 {
+    TRectsFace res{};
     cv::Rect *rects = nullptr;
     std::vector<cv::Rect> findRects;
     cv::Mat img = cv::imread(p_path);
@@ -31,9 +32,12 @@ cv::Rect* faceDet(const char* p_path)
         {
             rects[i] = findRects[i];
         }      
-    }     
+    }
 
-    return rects;
+    res.count =  findRects.size();
+    res.rects = rects;    
+
+    return res;
 }
 
 void initLibrary()

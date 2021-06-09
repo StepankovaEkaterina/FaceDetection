@@ -9,7 +9,14 @@
 #define FACEDET_API __declspec(dllimport)
 #endif
 
-extern "C" FACEDET_API cv::Rect* faceDet(const char* p_path);
+struct TRectsFace
+{
+    int count;
+    cv::Rect* rects;
+
+};
+
+extern "C" FACEDET_API TRectsFace faceDet(const char* p_path);
 
 extern "C" FACEDET_API void initLibrary();
 

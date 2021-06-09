@@ -126,14 +126,13 @@ void App::findFacesResult(HINSTANCE &p_instanceDll, LPCSTR &p_nameFunction)
         for(auto &path : m_filePaths)
         {
             cv::Mat img = cv::imread(path);
-            typedef cv::Rect* (__cdecl *faceDetection)(const char*);
-            cv::Rect* rectsArr = ((faceDetection)adresse_faceDet)(path.c_str());
+            typedef TRectsFace (__cdecl *faceDetection)(const char*);
+            TRectsFace res = ((faceDetection)adresse_faceDet)(path.c_str());
             std::vector<cv::Rect> resRects;
-            if(rectsArr)
+            if(res.count > 0)//rectsArr)
             {
-                int sizeRects = _msize(rectsArr) / sizeof(*rectsArr);
-                std::copy(rectsArr, rectsArr + sizeRects, std::back_inserter(resRects));
-                delete [] rectsArr;
+                std::copy(res.rects, res.rects + res.count, std::back_inserter(resRects));
+                delete [] res.rects;
             }            
             m_result.emplace(std::make_pair(path, resRects));
         }        

@@ -13,12 +13,10 @@ TEST(faceDet, findFaces)
     };
 
     for(auto& test: testSamples)
-    {
-        size_t size = 0;
-        cv::Rect* rectsArr = faceDet(test.first.c_str());
-        if(rectsArr)
-            size = _msize(rectsArr) / sizeof(*rectsArr);
-        ASSERT_EQ(size, test.second);
+    {        
+        TRectsFace res = faceDet(test.first.c_str());
+        delete [] res.rects;
+        ASSERT_EQ(res.count, test.second);
     }
 
     freeLibrary();

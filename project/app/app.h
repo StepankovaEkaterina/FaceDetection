@@ -14,6 +14,13 @@
 #include <json/json.h>
 #include <json/writer.h>
 
+struct TRectsFace
+{
+    int count;
+    cv::Rect* rects;
+
+};
+
 class App
 {
 public:        

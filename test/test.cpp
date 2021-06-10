@@ -13,8 +13,10 @@ TEST(faceDet, findFaces)
     };
 
     for(auto& test: testSamples)
-    {        
-        TRectsFace res = faceDet(test.first.c_str());
+    {  
+        TRectsFace res{};      
+        int hr = faceDet(test.first.c_str(), res);
+        ASSERT_EQ(hr, 0);
         delete [] res.rects;
         ASSERT_EQ(res.count, test.second);
     }

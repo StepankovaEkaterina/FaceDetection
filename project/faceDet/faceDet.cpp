@@ -9,9 +9,8 @@
 cv::CascadeClassifier m_faceCascade;
 std::string m_cascadePath = "haarcascade_frontalface_alt2.xml";
 
-TRectsFace faceDet(const char* p_path)
+int faceDet(const char* p_path, TRectsFace &p_res)
 {
-    TRectsFace res{};
     cv::Rect *rects = nullptr;
     std::vector<cv::Rect> findRects;
     cv::Mat img = cv::imread(p_path);
@@ -23,6 +22,7 @@ TRectsFace faceDet(const char* p_path)
     else
     {
         std::cout << "file: " << p_path << " doesn't open" << std::endl;
+        return -1;
     }
     
     if(findRects.size())
@@ -34,10 +34,10 @@ TRectsFace faceDet(const char* p_path)
         }      
     }
 
-    res.count =  findRects.size();
-    res.rects = rects;    
+    p_res.count =  findRects.size();
+    p_res.rects = rects;    
 
-    return res;
+    return 0;
 }
 
 void initLibrary()

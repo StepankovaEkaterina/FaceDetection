@@ -101,20 +101,12 @@ int App::run()
             typedef void (__cdecl *free)();
             ((free)adresse_free)();
         }              
-    }
-    catch (std::string &e)
-    {
-        std::cerr << e << std::endl;
-    }
+    }    
     catch (char *e)
     {
         std::cerr << e << std::endl;
     }
-    catch (std::exception &e)
-    {
-        std::cerr << e.what() << std::endl;
-    }    
-
+   
     return hr;
 }
 
@@ -126,10 +118,11 @@ void App::findFacesResult(HINSTANCE &p_instanceDll, LPCSTR &p_nameFunction)
         for(auto &path : m_filePaths)
         {
             cv::Mat img = cv::imread(path);
-            typedef TRectsFace (__cdecl *faceDetection)(const char*);
-            TRectsFace res = ((faceDetection)adresse_faceDet)(path.c_str());
+            TRectsFace res{};
+            typedef int (__cdecl *faceDetection)(const char*, TRectsFace&);
+            ((faceDetection)adresse_faceDet)(path.c_str(), res);
             std::vector<cv::Rect> resRects;
-            if(res.count > 0)//rectsArr)
+            if(res.count > 0)
             {
                 std::copy(res.rects, res.rects + res.count, std::back_inserter(resRects));
                 delete [] res.rects;

@@ -16,7 +16,7 @@ struct TRectsFace
 
 };
 
-extern "C" FACEDET_API TRectsFace faceDet(const char* p_path);
+extern "C" FACEDET_API int faceDet(const char* p_path, TRectsFace &p_res);
 
 extern "C" FACEDET_API void initLibrary();
 

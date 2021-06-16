@@ -16,8 +16,7 @@ TEST(faceDet, findFaces)
     {  
         TRectsFace res{};      
         int hr = faceDet(test.first.c_str(), res);
-        ASSERT_EQ(hr, 0);
-        delete [] res.rects;
+        ASSERT_EQ(hr, 0);        
         ASSERT_EQ(res.count, test.second);
     }
 

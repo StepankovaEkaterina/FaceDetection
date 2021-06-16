@@ -34,7 +34,7 @@ int faceDet(const char* p_path, TRectsFace &p_res)
         }      
     }
 
-    p_res.count =  findRects.size();
+    p_res.count = findRects.size();
     p_res.rects = rects;    
 
     return 0;

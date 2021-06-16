@@ -18,7 +18,18 @@ struct TRectsFace
 {
     int count;
     cv::Rect* rects;
-
+    ~TRectsFace()
+    {
+        clear();        
+    };
+    void clear()
+    {
+        if(rects)
+        {
+            delete [] rects;
+            rects = nullptr;
+        }
+    }
 };
 
 class App

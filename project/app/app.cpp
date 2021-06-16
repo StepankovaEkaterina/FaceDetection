@@ -18,10 +18,7 @@ App::App(const int argc, const char *argv[])
 
 App::~App() 
 {
-    m_appPath.clear();
-    m_inputPath.clear();
-    m_filePaths.clear();
-    m_result.clear();
+    
 }
 
 int scanDir(std::string &p_inputPath, std::vector<std::string> &p_filePaths)
@@ -58,13 +55,13 @@ int App::run()
     {
         if(instanceDll == NULL)
 	    {
-            throw  "library not loaded";
+            std::cout <<  "library not loaded";
         }
 
         FARPROC adresse_init = GetProcAddress(instanceDll, init);
         if(adresse_init == 0)
         {
-            throw  "initLibrary not loaded";
+            std::cout <<  "initLibrary not loaded";
         }
 
         typedef void (__cdecl *init)();
@@ -105,8 +102,8 @@ int App::run()
     catch (char *e)
     {
         std::cerr << e << std::endl;
-    }
-   
+    }     
+
     return hr;
 }
 
@@ -123,10 +120,7 @@ void App::findFacesResult(HINSTANCE &p_instanceDll, LPCSTR &p_nameFunction)
             ((faceDetection)adresse_faceDet)(path.c_str(), res);
             std::vector<cv::Rect> resRects;
             if(res.count > 0)
-            {
-                std::copy(res.rects, res.rects + res.count, std::back_inserter(resRects));
-                delete [] res.rects;
-            }            
+                std::copy(res.rects, res.rects + res.count, std::back_inserter(resRects));            
             m_result.emplace(std::make_pair(path, resRects));
         }        
     }    
